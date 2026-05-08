@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner Sampah</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-bg">
+        <div class="app-shell">
+            <section class="left-panel">
+                <div class="panel-header">SCAN DISINI</div>
+                <div class="camera-frame">
+                    <div class="frame-border"></div>
+                    <video id="video" autoplay muted playsinline></video>
+                </div>
+                <div class="control-row">
+                    <button id="scanButton" class="primary-btn">SCAN</button>
+                </div>
+                <div class="control-row">
+                    <select id="labelSelect" class="label-select">
+                        <option value="organik">Organik</option>
+                        <option value="anorganik">Anorganik</option>
+                        <option value="B3">B3</option>
+                    </select>
+                    <button id="captureButton" class="secondary-btn">Simpan Sampel</button>
+                </div>
+                <div class="control-row">
+                    <button id="trainButton" class="secondary-btn">Latih Model</button>
+                </div>
+                <div class="upload-hint" id="datasetStatus">Memuat status dataset...</div>
+            </section>
+
+            <section class="right-panel">
+                <div class="panel-header">TERDETEKSI JENIS SAMPAH</div>
+                <div class="result-box">
+                    <div class="result-label" id="resultLabel">-</div>
+                </div>
+                <div class="result-description" id="resultDescription">
+                    Hasil klasifikasi akan muncul di sini setelah kamu tekan tombol SCAN.
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
